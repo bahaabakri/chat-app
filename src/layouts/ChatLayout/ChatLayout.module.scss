@@ -1,3 +1,20 @@
-.custom-container {
-    
+.chat-container {
+    @apply flex flex-col gap-2 p-5;
+    .title {
+        @apply font-bold text-black;
+    }
+    .chat-content {
+        @apply flex flex-row shadow rounded-xl grow;
+        background-color: var(--card-color);
+        border: 1px solid var(--card-color);
+        .chat-lists-wrapper, .chat-user-wrapper {
+            @apply basis-64;
+        }
+        .chat-canvas-wrapper {
+            @apply grow;
+        }
+        .chat-user-wrapper {
+
+        }
+    }
 }

@@ -1,0 +1,19 @@
+.chat-lists {
+    @apply flex flex-col gap-5 p-5;
+    // border: 1px solid var(--gray-color);
+    .chat-lists-header {
+        @apply flex justify-between items-center gap-2;
+        .arrow-add-wrapper {
+            @apply flex gap-2 items-center;
+            .arrow-wrapper {
+                @apply w-6 h-6;
+            }
+            .add-wrapper {
+                @apply w-6 h-6;
+            }
+        }
+    }
+    .chat-lists-content {
+
+    }
+}

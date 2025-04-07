@@ -1,4 +1,4 @@
-import styles from './ChatHeader.module.scss'
+import styles from './ChatInput.module.scss'
 const ChatInput: React.FC = () => {
     return (
       <section className={styles['chat-input-wrapper']}>
