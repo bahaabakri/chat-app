@@ -1,16 +1,26 @@
 import styles from './Avatar.module.scss'
 interface AvatarProps {
     avatar:string,
-    isOnline?:boolean
+    isOnline?:boolean,
+    noBadge?:boolean,
+    width?:number,
+    height?:number
 }
-const Avatar: React.FC<AvatarProps> = ({avatar, isOnline}) => {
+const Avatar: React.FC<AvatarProps> = ({avatar, isOnline, noBadge, width, height}) => {
     return (
-        <div className={styles['avatar']}>
+        <div className={styles['avatar']}
+            style={{
+                width:width ?? 40,
+                height: height ?? 40
+            }}
+        >
             <img src={avatar} alt="" />
-            <div 
-            className={`${styles['online-marker']} ${isOnline ? 'bg-green-400' : 'bg-slate-400'}`}
-            >
-            </div>
+            {!noBadge && 
+                <div 
+                    className={`${styles['online-marker']} ${isOnline ? 'bg-green-400' : 'bg-slate-400'}`}
+                >
+                </div>
+            }
         </div>
     );
   };

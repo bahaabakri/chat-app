@@ -1,0 +1,6 @@
+.chat-item {
+    @apply flex gap-5 items-center;
+    .chat-item-name {
+        @apply text-lg;
+    }
+}
