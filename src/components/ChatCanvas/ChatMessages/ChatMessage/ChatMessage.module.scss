@@ -1,0 +1,36 @@
+.chat-message-wrapper {
+    @apply flex p-2;
+    .chat-message {
+        @apply p-2 rounded-xl relative;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid transparent; /* Change the color as needed */
+        }
+    }
+    &.me {
+        justify-content: end;
+        .chat-message {
+            background-color: var(--secondary-color);
+            &::after {
+                right:-9px;
+                border-top-color: var(--secondary-color);
+            }
+        }
+    }
+    &.you {
+        justify-content: flex-start;
+        .chat-message {
+            background-color: var(--gray-color);
+            &::after {
+                left:-9px;
+                border-top-color: var(--gray-color);
+            }
+        }
+    }
+}

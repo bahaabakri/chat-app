@@ -3,13 +3,28 @@ import avatar from '@/assets/avatars/male-01.jpg'
 import Avatar from '@/UI/Avatar/Avatar';
 import CustomTextField from '@/UI/CustomTextField/CustomTextField';
 import { ChevronLeftIcon, MagnifyingGlassIcon, UserIcon, UserPlusIcon, UsersIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
-import chatsListItems from './UsersChats/chats-list';
-import ChatItem from './UsersChats/ChatItem/ChatItem';
+import { ChangeEvent, useState } from 'react';
 import UsersChats from './UsersChats/UsersChats';
 import GroupsChats from './GroupsChats/GroupsChats';
+import { GroupChat, UserChat } from '@/data/chat.type';
+import groupsChats from '@/data/groups-chats';
+import usersChats from '@/data/users-chats';
 const ChatsList: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState<'chats' | 'groups'>('chats')
+  const [filteredChatsListItems, setFilteredChatsListItems] = useState<UserChat[]>(usersChats)
+  const [filteredGroupsListItems, setFilteredGroupsListItems] = useState<GroupChat[]>(groupsChats)
+  /**Handling Search Conversations */
+  const handleSearch = (e:ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>) => {
+    const searchText = e.target.value
+    // filter user chats
+    setFilteredChatsListItems(prev => 
+      usersChats.filter(el => el.name.startsWith(searchText))
+    )
+    // filter groups chats
+    setFilteredGroupsListItems(prev => 
+      groupsChats.filter(el => el.name.startsWith(searchText))
+    )
+  }
     return (
       <section className={styles['chat-lists']}>
         <div className={styles['chat-lists-header']}>
@@ -28,6 +43,7 @@ const ChatsList: React.FC = () => {
         </div>
         <div className={styles['chat-lists-search']}>
           <CustomTextField 
+          onChangeInput={handleSearch}
           icon={<MagnifyingGlassIcon />}
           placeholder='Search Conversation...'></CustomTextField>
         </div>
@@ -45,11 +61,12 @@ const ChatsList: React.FC = () => {
             </div>
           </div>
           {
-            selectedTab === 'chats' ? <UsersChats/> : <GroupsChats />
+            selectedTab === 'chats' 
+            ? <UsersChats usersChats={filteredChatsListItems}/> 
+            : <GroupsChats groupsChats={filteredGroupsListItems} />
           }
 
         </div>
-        <div></div>
       </section>
     );
   };

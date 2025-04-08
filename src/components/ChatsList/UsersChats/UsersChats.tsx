@@ -1,11 +1,13 @@
 import styles from './UsersChats.module.scss'
-import chatsListItems from './chats-list';
 import ChatItem from './ChatItem/ChatItem';
-const UsersChats: React.FC = () => {
+import { UserChat } from '@/data/chat.type';
+const UsersChats: React.FC<{usersChats:UserChat[]}> = ({usersChats}) => {
     return (
         <ul className={styles['chat-lists-users']}>
             {
-            chatsListItems.map(chatItem => <ChatItem key={chatItem.id} {...chatItem} />)
+            usersChats.length == 0 
+            ? <p className={'no-data'}>There are no conversations</p> 
+            : usersChats.map(userChat => <ChatItem key={userChat.id} userChat={userChat} />)
             }
       </ul>
     );

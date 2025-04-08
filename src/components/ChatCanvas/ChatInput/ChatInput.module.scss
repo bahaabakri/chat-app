@@ -1,0 +1,11 @@
+.chat-input-wrapper {
+    @apply p-5;
+    border-top: 1px solid var(--gray-color);
+    .chat-input-actions {
+        @apply flex gap-2 items-center;
+        & > div {
+            width: 24px;
+            height: 24px;
+        } 
+    }
+}

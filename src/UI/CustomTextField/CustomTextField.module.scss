@@ -1,11 +1,18 @@
 .custom-text-field {
-    @apply rounded-lg flex items-center gap-2 p-2;
+    @apply rounded-lg flex items-center gap-2 p-2 ;
     border: 1px solid var(--gray-color);
     background-color: transparent;
-    input:focus {
-        border:none;
-        outline: none;
+    .input-wrapper {
+        @apply flex-1;
+        input, textarea {
+            @apply w-full;
+        }
+        input:focus, textarea:focus {
+            border:none;
+            outline: none;
+        }
     }
+
     .icon {
         @apply w-6 h-6;
         color: var(--gray-color);

@@ -1,0 +1,15 @@
+.chat-messages-input-info {
+    @apply flex grow;
+    .chat-messages-input {
+        @apply flex flex-col grow h-full;
+        article {
+            @apply grow;
+        }
+        footer {
+            @apply justify-end;
+        }
+    }
+    .chat-user-wrapper {
+        @apply basis-64;
+    }
+}

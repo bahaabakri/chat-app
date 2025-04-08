@@ -1,0 +1,4 @@
+.chat-header-wrapper {
+    @apply flex gap-5 items-center p-5;
+    border-bottom: 1px solid var(--gray-color);
+}

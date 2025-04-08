@@ -1,0 +1,52 @@
+.user-info-wrapper {
+    @apply flex flex-col gap-5  h-full;
+    border-left: 1px solid var(--gray-color);
+    .avatar-wrapper {
+        @apply text-center p-5;
+        .avatar {
+            @apply w-12 h-12 md:w-24 md:h-24 m-auto;
+            img {
+                @apply w-full h-full rounded-full;
+            }
+        }
+        .name {
+            @apply text-lg;
+        }
+        .role {
+            color: var(--gray-color);
+        }
+
+    }
+    .info-wrapper {
+        @apply flex flex-col gap-5;
+        .title {
+            @apply p-2 text-sm rounded-sm;
+            background-color: var(--gray-color);
+        }
+        .info {
+            @apply p-2 flex gap-2 items-center;
+        }
+    }
+    .attachments-wrapper {
+        @apply flex flex-col gap-5;
+        .title {
+            @apply p-2 text-sm rounded-sm;
+            background-color: var(--gray-color);
+        }
+        .attachment {
+            @apply p-2 flex gap-2 items-center text-sm;;
+            .image {
+                @apply w-10 h-10;
+                img {
+                    @apply w-full h-full rounded-xl;
+                }   
+            }
+            .attach-name {
+                // @apply text-sm;
+            }
+            .attach-date {
+                color: var(--gray-color);
+            }
+        }
+    }
+}

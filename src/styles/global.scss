@@ -4,4 +4,14 @@
 @tailwind utilities;
 body {
     background-color: var(--background-color);
-}   
+}
+.no-data {
+    padding: 10px;
+    color: var(--gray-color);
+    text-align: center;
+}
+.custom-hr {
+    height: 1px;
+    background-color: var(--gray-color);
+    border: none;
+}

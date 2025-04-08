@@ -1,7 +1,7 @@
+import { GroupChat } from '@/data/chat.type';
 import styles from './GroupItem.module.scss'
-import { GroupListItem } from '../../chats-list.type';
 import Avatar from '@/UI/Avatar/Avatar';
-const GroupItem: React.FC<GroupListItem> = ({name, image, users}) => {
+const GroupItem: React.FC<GroupChat> = ({name, image, users}) => {
     return (
       <li className={styles['group-item']}>
         <Avatar noBadge avatar={image}/>

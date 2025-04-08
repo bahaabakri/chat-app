@@ -1,20 +1,18 @@
 .chat-container {
-    @apply flex flex-col gap-2 p-5;
+    @apply flex flex-col gap-2 p-5 h-screen;
     .title {
         @apply font-bold text-black;
     }
     .chat-content {
         @apply flex flex-row shadow rounded-xl grow;
+        height: 90vh;
         background-color: var(--card-color);
         border: 1px solid var(--card-color);
         .chat-lists-wrapper, .chat-user-wrapper {
             @apply basis-64;
         }
         .chat-canvas-wrapper {
-            @apply grow;
-        }
-        .chat-user-wrapper {
-
+            @apply flex flex-col h-full grow justify-end;
         }
     }
 }
