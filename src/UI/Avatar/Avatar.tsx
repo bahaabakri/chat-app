@@ -17,7 +17,7 @@ const Avatar: React.FC<AvatarProps> = ({avatar, isOnline, noBadge, width, height
             <img src={avatar} alt="" />
             {!noBadge && 
                 <div 
-                    className={`${styles['online-marker']} ${isOnline ? 'bg-green-400' : 'bg-slate-400'}`}
+                    className={`${styles['online-marker']} ${isOnline ? 'bg-green-400' : 'bg-transparent border-2 border-slate-400'}`}
                 >
                 </div>
             }

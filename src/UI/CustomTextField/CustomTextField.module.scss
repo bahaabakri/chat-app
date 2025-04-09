@@ -1,5 +1,5 @@
 .custom-text-field {
-    @apply rounded-lg flex items-center gap-2 p-2 ;
+    @apply rounded-lg flex items-start gap-2 p-2 ;
     border: 1px solid var(--gray-color);
     background-color: transparent;
     .input-wrapper {

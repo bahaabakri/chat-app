@@ -1,0 +1,15 @@
+.attachment {
+    @apply p-2 flex gap-2 items-center text-sm;;
+    .image {
+        @apply w-10 h-10;
+        img {
+            @apply w-full h-full rounded-xl;
+        }   
+    }
+    .attach-name {
+        // @apply text-sm;
+    }
+    .attach-date {
+        @apply text-slate-400;;
+    }
+}

@@ -8,4 +8,11 @@
             height: 24px;
         } 
     }
+    .preview {
+        @apply border p-2 rounded relative;
+        .x-icon {
+            @apply w-4 h-4 absolute -top-2 -right-2 bg-red-400 p-0.5 rounded-full text-white;
+        }
+        
+    }
 }

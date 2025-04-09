@@ -22,26 +22,31 @@ const  usersChats:UserChat[] =
 
             {
                 id:1,
+                messageType: 'text',
                 type: 'me',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
+                messageType: 'text',
                 type: 'you',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
+                messageType: 'text',
                 type: 'me',
                 text: `thanks\nbye`
             },
             {
                 id:4,
+                messageType: 'text',
                 type: 'you',
                 text: `see u\nbye`
             },
             {
                 id:8,
+                messageType: 'text',
                 type: 'you',
                 text: `asdfsfsdfsd sdf fsd fsdf sdfs df sdf sdf sd f\n sdfsdfs dfsdf`
             }
@@ -57,21 +62,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -86,21 +95,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -114,21 +127,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -143,21 +160,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -172,21 +193,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -200,21 +225,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -229,21 +258,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -258,21 +291,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -286,21 +323,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -315,21 +356,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]
@@ -344,21 +389,25 @@ const  usersChats:UserChat[] =
             {
                 id:1,
                 type: 'me',
+                messageType: 'text',
                 text: `hello\nhow r u`
             },
             {
                 id:2,
                 type: 'you',
+                messageType: 'text',
                 text: `hi\n glad to see u here`
             },
             {
                 id:3,
                 type: 'me',
+                messageType: 'text',
                 text: `thanks\nbye`
             },
             {
                 id:4,
                 type: 'you',
+                messageType: 'text',
                 text: `see u\nbye`
             }
         ]

@@ -9,7 +9,7 @@ const ChatMessages: React.FC = () => {
         {
           (!selectedUserChat?.messages || selectedUserChat.messages.length == 0)
           ? <p className={'no-data'}>There are no messages</p>
-          : selectedUserChat?.messages.map(message => <ChatMessage {...message}/>)
+          : selectedUserChat?.messages.map(message => <ChatMessage key={message.id} {...message}/>)
         }
         
       </ul>

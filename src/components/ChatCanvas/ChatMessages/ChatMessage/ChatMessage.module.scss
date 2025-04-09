@@ -2,6 +2,7 @@
     @apply flex p-2;
     .chat-message {
         @apply p-2 rounded-xl relative;
+        max-width: 40%;
         &::after {
             content: "";
             position: absolute;
