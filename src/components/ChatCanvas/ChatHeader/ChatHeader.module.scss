@@ -1,4 +1,11 @@
 .chat-header-wrapper {
-    @apply flex gap-5 items-center p-5;
+    @apply flex justify-between items-center p-5;
     border-bottom: 1px solid var(--gray-color);
+    .chat-header-left {
+        @apply flex gap-5 items-center; 
+
+    }
+    .back-btn {
+        @apply w-6 h-6 cursor-pointer;
+    }
 }

@@ -5,12 +5,14 @@ interface CustomTextFieldProps {
   children?:ReactNode,
   icon?:ReactNode,
   numOfRows?:number,
-  isHidden?:boolean
+  isHidden?:boolean,
+  error?:string
   onChangeInput?:(e:ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>) => void
 }
 type Props = CustomTextFieldProps & TextareaHTMLAttributes<HTMLTextAreaElement>;
-const CustomTextField = forwardRef<HTMLTextAreaElement, Props>(({placeholder, children, icon, numOfRows, isHidden, onChangeInput}, ref) => {
+const CustomTextField = forwardRef<HTMLTextAreaElement, Props>(({placeholder, children, icon, numOfRows, isHidden, onChangeInput, error}, ref) => {
     return (
+      <>
       <div className={styles['custom-text-field']}>
         {icon && <div className={styles['icon']}>{icon}</div>}
         <div className={`${styles['input-wrapper']} ${isHidden ? 'hidden' : undefined}`}>
@@ -23,6 +25,8 @@ const CustomTextField = forwardRef<HTMLTextAreaElement, Props>(({placeholder, ch
         </div>
         {children && <div className={`flex items-center gap-5 justify-between ${isHidden ? 'grow' : undefined}`}>{children}</div>}
       </div>
+      {error && <p className='error'>{error}</p>}
+      </>
     );
   });
   

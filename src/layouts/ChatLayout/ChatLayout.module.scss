@@ -9,8 +9,12 @@
         background-color: var(--card-color);
         border: 1px solid var(--card-color);
         .chat-lists-wrapper {
+            @apply hidden lg:block;
             flex:1;
             max-width: 400px;
+        }
+        .chat-lists-wrapper-mobile {
+            @apply w-full;
         }
         .chat-canvas-wrapper {
             @apply grow;

@@ -4,12 +4,14 @@
     .chat-input-actions {
         @apply flex gap-2 items-center;
         & > div {
-            width: 24px;
-            height: 24px;
+            @apply w-6 h-6 cursor-pointer;
         } 
     }
     .preview {
         @apply border p-2 rounded relative;
+        &.audio {
+            @apply w-full md:w-auto md:min-w-96;
+        }
         .x-icon {
             @apply w-4 h-4 absolute -top-2 -right-2 bg-red-400 p-0.5 rounded-full text-white;
         }

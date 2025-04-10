@@ -4,10 +4,11 @@ import { MicrophoneIcon, PaperAirplaneIcon, PaperClipIcon, PhotoIcon, XMarkIcon 
 import { useContext, useRef, useState } from 'react';
 import ChatContext from '@/contexts/ChatContext';
 import { ChatMessageType, UserChat } from '@/data/chat.type';
+import Modal from '@/UI/Modal/Modal';
 
 interface Preview {
-  type: 'file' | 'image';
-  src?:string;
+  type: 'file' | 'image' | 'audio';
+  src:string;
   name?:string;
 }
 
@@ -17,15 +18,18 @@ const ChatInput: React.FC = ({}) => {
   const uploadImageInput = useRef(null)
   const uploadFileInput = useRef(null)
   const [preview, setPreview] = useState<Preview | null>(null); // Holds image URL or file info
-  const [file, setFile] = useState<File | null>(null); // Holds raw file
+
+  // record voice message
+  const [mediaRecorder, setMediaRecorder] = useState<MediaRecorder | null>(null);
+  const [isRecording, setIsRecording] = useState(false);
+  const [audioError, setAudioError] = useState<string | null>(null)
+  const audioChunks = useRef<Blob[]>([]);
   /**
    * To handle upload Image or File
    */
   const handleUpload = (e:React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = e.target.files?.[0];
     if (!selectedFile) return;
-
-    setFile(selectedFile);
     const fileSrc = URL.createObjectURL(selectedFile);
     if (selectedFile.type.startsWith('image/')) {
       setPreview({ type: 'image', name: selectedFile.name, src: fileSrc });
@@ -51,6 +55,14 @@ const ChatInput: React.FC = ({}) => {
       } else if (preview.type === 'file') {
         newMessageObj = {
           messageType:'file',
+          fileSrc: preview.src,
+          fileName: preview.name,
+          type: 'me',
+          id: Math.floor(Math.random() * 1000) + 1
+        }
+      } if (preview.type === 'audio') {
+        newMessageObj = {
+          messageType:'audio',
           fileSrc: preview.src,
           fileName: preview.name,
           type: 'me',
@@ -87,16 +99,52 @@ const ChatInput: React.FC = ({}) => {
     } 
   }
 
+  /**
+   * Reset all files
+   */
   const resetFiles = () => {
-    setFile(null);
     setPreview(null);
   }
+
+  // voice message methods
+  const startRecording = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const recorder = new MediaRecorder(stream);
+      recorder.ondataavailable = (e) => {
+        if (e.data.size > 0) {
+          audioChunks.current.push(e.data);
+        }
+      };
+  
+      recorder.onstop = () => {
+        const audioBlob = new Blob(audioChunks.current, { type: 'audio/webm' });
+        const url = URL.createObjectURL(audioBlob);
+        setPreview({ type: 'audio', src: url });
+        audioChunks.current = [];
+      };
+      recorder.start();
+      setMediaRecorder(recorder);
+      setIsRecording(true);
+    } catch(err:any) {
+      console.error(err);
+      setAudioError(err?.message ?? 'Something went wrong')
+      setTimeout(() => {
+        setAudioError(null)
+      }, 5000)
+    }
+  };
+
+  const stopRecording = () => {
+    mediaRecorder?.stop();
+    setIsRecording(false);
+  };
     return (
       <section className={styles['chat-input-wrapper']}>
-        <CustomTextField isHidden={preview ? true : false} placeholder='Type a message...' numOfRows={3} ref={textareaRef}>
+        <CustomTextField error={audioError ?? undefined} isHidden={preview ? true : false} placeholder='Type a message...' numOfRows={3} ref={textareaRef}>
           {/* Preview */}
           {preview && (
-            <div className={styles['preview']}>
+            <div className={`${styles['preview']} ${ preview.type === 'audio' ? styles['audio'] : undefined}`}>
               <div className={styles['x-icon']} onClick={resetFiles}>
                 <XMarkIcon />
               </div>
@@ -106,9 +154,16 @@ const ChatInput: React.FC = ({}) => {
                   alt="preview"
                   className="w-10 h-10 rounded"
                 />
-              ) : (
+              ) : ((preview.type === 'file') ? (
                 <p className="text-gray-700">📄 {preview.name}</p>
-              )}
+              ) : (preview.type === 'audio') &&
+              (
+              <div className="space-y-2 w-full">
+                <audio controls src={preview.src} className="w-full" />
+              </div>
+              )
+            )
+            }
           </div>)}
           <div className={styles['chat-input-actions']}>
               {
@@ -123,7 +178,10 @@ const ChatInput: React.FC = ({}) => {
                     accept="image/*" />
                   </div>
                   <div className='send-voice'>
-                    <MicrophoneIcon />
+                    <MicrophoneIcon 
+                    onClick={isRecording ? stopRecording : startRecording}
+                    stroke={isRecording ? 'var(--primary-color)' : 'currentColor'}
+                    />
                   </div>
                   <div className='send-attachment'>
                     <PaperClipIcon onClick={() => ((uploadFileInput.current) as any).click()}/>

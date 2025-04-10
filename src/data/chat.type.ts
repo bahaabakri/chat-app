@@ -3,7 +3,7 @@ interface IdNamePair {
     name:string;
 }
 export interface ChatMessageType {
-    messageType:'text' | 'file' | 'image'
+    messageType:'text' | 'file' | 'image' | 'audio'
     id:number;
     type: 'me' | 'you';
     text?: string;

@@ -1,6 +1,6 @@
 .user-info-wrapper {
     @apply flex flex-col gap-5  h-full;
-    border-left: 1px solid var(--gray-color);
+    
     .avatar-wrapper {
         @apply text-center p-5;
         .avatar {

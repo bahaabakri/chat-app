@@ -2,6 +2,7 @@
     @apply flex flex-col h-full;
     .chat-messages-header {
         height: 80px;
+        cursor: pointer;
     }
     .chat-messages-input-info {
         height: calc(100% - 80px);
@@ -21,7 +22,8 @@
         }
         .chat-user-wrapper {
             flex:1;
-            @apply  overflow-auto;
+            border-left: 1px solid var(--gray-color);
+            @apply  overflow-auto hidden lg:block;;
         }
     }
 }
