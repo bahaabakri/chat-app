@@ -41,6 +41,7 @@ const ChatInput: React.FC = ({}) => {
    * To handle send message
    */
   const handleSend = () => {
+    if (!preview && textareaRef.current?.value == '') return
     let newMessageObj:ChatMessageType
     if (preview) {
       if (preview.type === 'image') {
