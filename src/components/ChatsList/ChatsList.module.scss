@@ -1,6 +1,5 @@
 .chat-lists {
-    @apply flex flex-col gap-5 p-5 h-full;
-    border-right: 1px solid var(--gray-color);
+    @apply flex flex-col gap-5 p-5 h-full md:border-r md:border-r-[var(--gray-color)]; 
     .chat-lists-header {
         @apply flex justify-between items-center gap-2;
         .arrow-add-wrapper {
