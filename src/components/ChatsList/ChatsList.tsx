@@ -17,11 +17,11 @@ const ChatsList: React.FC = () => {
   const handleSearch = (e:ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>) => {
     const searchText = e.target.value
     // filter user chats
-    setFilteredChatsListItems(prev => 
+    setFilteredChatsListItems(_ => 
       usersChats.filter(el => el.name.startsWith(searchText))
     )
     // filter groups chats
-    setFilteredGroupsListItems(prev => 
+    setFilteredGroupsListItems(_ => 
       groupsChats.filter(el => el.name.startsWith(searchText))
     )
   }

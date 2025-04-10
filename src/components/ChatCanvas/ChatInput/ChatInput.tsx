@@ -4,7 +4,6 @@ import { MicrophoneIcon, PaperAirplaneIcon, PaperClipIcon, PhotoIcon, XMarkIcon 
 import { useContext, useRef, useState } from 'react';
 import ChatContext from '@/contexts/ChatContext';
 import { ChatMessageType, UserChat } from '@/data/chat.type';
-import Modal from '@/UI/Modal/Modal';
 
 interface Preview {
   type: 'file' | 'image' | 'audio';
