@@ -19,10 +19,10 @@ const ChatMessage: React.FC<ChatMessageType> = ({type, text, messageType, fileSr
       }
     }
   };
-  console.log(iframeError)
+  // console.log(iframeError)
     return (
       <li className={`${styles['chat-message-wrapper']} ${type === 'me' ? styles.me: styles.you}`}>
-            <div className={`${styles['chat-message']} fade-in-element`}>
+            <div className={`${styles['chat-message']} ${messageType !== 'audio' ? 'max-w-60' : 'max-w-max'} fade-in-element`}>
               {
                 (messageType === 'text' && text) &&
                   text.split('\n').map((line, index) => (
@@ -66,7 +66,7 @@ const ChatMessage: React.FC<ChatMessageType> = ({type, text, messageType, fileSr
                 (messageType === 'audio' && fileSrc) &&
                 (
                   <div className="space-y-2 w-full">
-                  <audio controls src={fileSrc} className="w-60" />
+                  <audio controls src={fileSrc} className="md:w-60" />
                 </div>
                 )
               }
